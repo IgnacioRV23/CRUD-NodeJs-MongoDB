@@ -8,7 +8,12 @@ const getAll = async () => {
     return result;
 };
 
+const create = async (newProduct) => {
+    const collection = await Database(COLLECTION);
+    await collection.insertOne(newProduct);
+};
 
 module.exports.ProductsService = {
-    getAll
+    getAll,
+    create
 };
