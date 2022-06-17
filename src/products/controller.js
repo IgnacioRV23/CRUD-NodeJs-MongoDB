@@ -16,6 +16,20 @@ module.exports.ProductsController = {
         }
     },
 
+    getProduct: async (req, res) => {
+        try {
+            let {params:{id}} = req;
+            let product = await ProductsService.getById(id);
+            res.status(200).json({
+                message:"Producto encontrado",
+                body:product
+            });
+        } catch (error) {
+            res.status(500).json({message:"Internal Server Error"});
+            console.log(`module.exports.ProductsController:getProduct: ${error}` .red);
+        }
+    },
+
     createProduct: async (req, res) => {
         try {
             let {body:newProduct} = req;
