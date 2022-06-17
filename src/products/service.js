@@ -29,9 +29,15 @@ const update = async (id, dataProduct) => {
     );
 };
 
+const deleteService  = async (id) => {
+    const collection = await Database(COLLECTION);
+    await collection.deleteOne({_id:ObjectId(id)});
+};
+
 module.exports.ProductsService = {
     getAll,
     getById,
     create,
-    update
+    update,
+    deleteService
 };

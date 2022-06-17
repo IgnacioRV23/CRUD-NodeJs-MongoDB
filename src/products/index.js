@@ -9,7 +9,8 @@ module.exports.ProductsAPI = (app) => {
     .get("/", ProductsController.getProducts)
     .get("/:id", ProductsController.getProduct)
     .post("/", ProductsController.createProduct)
-    .post("/update/:id", ProductsController.updateProduct);
+    .post("/update/:id", ProductsController.updateProduct)
+    .post("/delete/:id", ProductsController.deleteProduct);
 
     app.use("/api/products", router);
 };
