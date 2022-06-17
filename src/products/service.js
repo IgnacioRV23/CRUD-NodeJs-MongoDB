@@ -21,8 +21,17 @@ const create = async (newProduct) => {
     await collection.insertOne(newProduct);
 };
 
+const update = async (id, dataProduct) => {
+    const collection = await Database(COLLECTION);
+    await collection.updateOne(
+        {_id:ObjectId(id)},
+        {$set:{...dataProduct}}
+    );
+};
+
 module.exports.ProductsService = {
     getAll,
     getById,
-    create
+    create,
+    update
 };
