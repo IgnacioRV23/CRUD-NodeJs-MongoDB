@@ -4,6 +4,8 @@ const colors = require('colors');
 
 const {IndexAPI, NotFoundAPI} = require("./src/main/index");
 
+const {ProductsAPI} = require("./src/products/index");
+
 const app = express();
 
 //Settings.
@@ -12,6 +14,7 @@ app.set("port", 3000);
 
 //Routers.
 IndexAPI(app);
+ProductsAPI(app);
 NotFoundAPI(app);
 
 //Server.
